@@ -1,0 +1,201 @@
+### context=remote-arm64 mode=prompt
+### DOCKER_CONTEXT=remote-arm64 docker buildx bake --progress=plain final
+#0 building with "remote-arm64" instance using docker driver
+
+#1 [internal] load local bake definitions
+#1 reading docker-bake.hcl 2.63kB / 2.63kB done
+#1 DONE 0.0s
+Your build is requesting privileges for following possibly insecure capabilities:
+
+ - Forwarding default SSH agent socket
+
+In order to not see this message in the future pass "--allow=ssh" to grant requested privileges.
+
+Your full command with requested privileges:
+
+docker buildx bake --allow=ssh --progress=plain final
+
+To disable filesystem entitlements checks, you can set BUILDX_BAKE_ENTITLEMENTS_FS=0 .
+
+Do you want to grant requested privileges and continue? [y/N] y
+2026/11/20 09:48:12 http2: server: error reading preface from client dummy-1: read |0: file already closed
+#0 building with "remote-arm64" instance using docker driver
+
+#1 [build-base internal] load build definition from base.Dockerfile
+#1 transferring dockerfile: 361B done
+#1 DONE 0.0s
+
+#2 [build-base] resolve image config for docker-image://docker.io/docker/dockerfile:1.10
+#2 DONE 0.7s
+
+#3 [build-base] docker-image://docker.io/docker/dockerfile:1.10@sha256:865e5dd094beca432e8c0a1d5e1c465db5f998dca4e439981029b3b81fb39ed5
+#3 resolve docker.io/docker/dockerfile:1.10@sha256:865e5dd094beca432e8c0a1d5e1c465db5f998dca4e439981029b3b81fb39ed5 0.0s done
+#3 CACHED
+
+#4 [build-base internal] load metadata for docker.io/library/rust:1.95-slim-bookworm
+#4 DONE 0.4s
+
+#5 [fetch-b internal] load build definition from fetch.Dockerfile
+#5 transferring dockerfile: 2.82kB done
+#5 DONE 0.0s
+
+#6 [build-base internal] load .dockerignore
+#6 transferring context: 42B done
+#6 DONE 0.0s
+
+#2 [fetch-a] resolve image config for docker-image://docker.io/docker/dockerfile:1.10
+#2 DONE 0.7s
+
+#3 [fetch-a] docker-image://docker.io/docker/dockerfile:1.10@sha256:865e5dd094beca432e8c0a1d5e1c465db5f998dca4e439981029b3b81fb39ed5
+#3 resolve docker.io/docker/dockerfile:1.10@sha256:865e5dd094beca432e8c0a1d5e1c465db5f998dca4e439981029b3b81fb39ed5 0.0s done
+#3 CACHED
+
+#6 [fetch-b internal] load .dockerignore
+#6 transferring context: 42B done
+#6 DONE 0.0s
+
+#7 [final internal] load build definition from final.Dockerfile
+#7 transferring dockerfile: 297B done
+#7 DONE 0.0s
+
+#8 [build-base 1/2] FROM docker.io/library/rust:1.95-slim-bookworm@sha256:d7482085ff5b415f84dba5647ae71606650bdef00db7aeb69f4b3d170c3e4082
+#8 resolve docker.io/library/rust:1.95-slim-bookworm@sha256:d7482085ff5b415f84dba5647ae71606650bdef00db7aeb69f4b3d170c3e4082 0.0s done
+#8 DONE 0.0s
+
+#9 [build-base 2/2] RUN apt-get update &&     apt-get install -y --no-install-recommends openssh-client git ca-certificates &&     rm -rf /var/lib/apt/lists/*
+#9 CACHED
+
+#2 [final] resolve image config for docker-image://docker.io/docker/dockerfile:1.10
+#2 DONE 0.7s
+
+#3 [final] docker-image://docker.io/docker/dockerfile:1.10@sha256:865e5dd094beca432e8c0a1d5e1c465db5f998dca4e439981029b3b81fb39ed5
+#3 resolve docker.io/docker/dockerfile:1.10@sha256:865e5dd094beca432e8c0a1d5e1c465db5f998dca4e439981029b3b81fb39ed5 0.0s done
+#3 CACHED
+
+#10 [final internal] load metadata for docker.io/library/ubuntu:jammy
+#10 DONE 0.4s
+
+#11 [final final 1/4] FROM docker.io/library/ubuntu:jammy@sha256:f64b2ffc2f10ab8f8505aa56b2664bd846cbb9df87c7e2532e30f7667021c0e6
+#11 resolve docker.io/library/ubuntu:jammy@sha256:f64b2ffc2f10ab8f8505aa56b2664bd846cbb9df87c7e2532e30f7667021c0e6 0.0s done
+#11 CACHED
+
+#6 [final internal] load .dockerignore
+#6 transferring context: 42B done
+#6 DONE 0.0s
+
+#8 [final 1/2] FROM docker.io/library/rust:1.95-slim-bookworm@sha256:d7482085ff5b415f84dba5647ae71606650bdef00db7aeb69f4b3d170c3e4082
+#8 resolve docker.io/library/rust:1.95-slim-bookworm@sha256:d7482085ff5b415f84dba5647ae71606650bdef00db7aeb69f4b3d170c3e4082 0.0s done
+#8 DONE 0.1s
+
+#9 [fetch-a 2/2] RUN apt-get update &&     apt-get install -y --no-install-recommends openssh-client git ca-certificates &&     rm -rf /var/lib/apt/lists/*
+#9 CACHED
+
+#12 [final fetch 1/5] RUN --mount=type=secret,id=GITHUB_AUTH_TOKEN,env=GITHUB_AUTH_TOKEN,required=false     if [ "${GITHUB_AUTH_TOKEN}" != "" ]; then       git config --global url."https://x-access-token:${GITHUB_AUTH_TOKEN}@github.com/".insteadOf "ssh://git@github.com/";       git config --global --add url."https://x-access-token:${GITHUB_AUTH_TOKEN}@github.com/".insteadOf "git@github.com:";     else echo "Using SSH agent for repository access"; fi
+#12 1.033 Using SSH agent for repository access
+#12 DONE 0.8s
+
+#13 [fetch-b fetch 1/5] RUN --mount=type=secret,id=GITHUB_AUTH_TOKEN,env=GITHUB_AUTH_TOKEN,required=false     if [ "${GITHUB_AUTH_TOKEN}" != "" ]; then       git config --global url."https://x-access-token:${GITHUB_AUTH_TOKEN}@github.com/".insteadOf "ssh://git@github.com/";       git config --global --add url."https://x-access-token:${GITHUB_AUTH_TOKEN}@github.com/".insteadOf "git@github.com:";     else echo "Using SSH agent for repository access"; fi
+#13 1.061 Using SSH agent for repository access
+#13 DONE 0.9s
+
+#14 [fetch-b fetch 2/5] WORKDIR /ws/consumer
+#14 DONE 0.1s
+
+#15 [final fetch 2/5] WORKDIR /ws/consumer
+#15 DONE 0.2s
+
+#16 [fetch-a fetch 3/5] RUN mkdir -p src && : > src/lib.rs &&     printf '[package]\nname = "consumer"\nversion = "0.1.0"\nedition = "2021"\n\n[dependencies]\ndep = { package = "%s", git = "%s" }\n'       "cfg-if" "ssh://git@github.com/rust-lang/cfg-if" > Cargo.toml &&     cat Cargo.toml
+#16 1.235 [package]
+#16 1.235 name = "consumer"
+#16 1.235 version = "0.1.0"
+#16 1.235 edition = "2021"
+#16 1.235 
+#16 1.235 [dependencies]
+#16 1.235 dep = { package = "cfg-if", git = "ssh://git@github.com/rust-lang/cfg-if" }
+#16 DONE 1.2s
+
+#17 [fetch-b fetch 3/5] RUN mkdir -p src && : > src/lib.rs &&     printf '[package]\nname = "consumer"\nversion = "0.1.0"\nedition = "2021"\n\n[dependencies]\ndep = { package = "%s", git = "%s" }\n'       "cfg-if" "ssh://git@github.com/rust-lang/cfg-if" > Cargo.toml &&     cat Cargo.toml
+#17 1.240 [package]
+#17 1.240 name = "consumer"
+#17 1.240 version = "0.1.0"
+#17 1.240 edition = "2021"
+#17 1.240 
+#17 1.240 [dependencies]
+#17 1.240 dep = { package = "cfg-if", git = "ssh://git@github.com/rust-lang/cfg-if" }
+#17 DONE 1.2s
+
+#18 [fetch-a fetch 4/5] RUN --mount=type=ssh     echo "[${STEP_NAME}] SSH_AUTH_SOCK=${SSH_AUTH_SOCK:-<unset>} CARGO_NET_GIT_FETCH_WITH_CLI=${CARGO_NET_GIT_FETCH_WITH_CLI}"     && (ls -l "${SSH_AUTH_SOCK:-/nonexistent}" || true)     && (keys="$(ssh-add -l)"         && echo "$keys" | awk -v s="[${STEP_NAME}]" '{print s, "ssh-add: key", $1, $NF}'         || echo "[${STEP_NAME}] ssh-add -l exit=$?")     && install -m 0700 -d ~/.ssh     && ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null     && cargo fetch     && echo "[${STEP_NAME}] OK $(grep -m1 'source = "git+' Cargo.lock)" | tee /ws/result.txt
+#18 1.277 [fetch-a] SSH_AUTH_SOCK=/run/buildkit/ssh_agent.0 CARGO_NET_GIT_FETCH_WITH_CLI=true
+#18 1.280 srw------- 1 root root 0 Nov 20 08:48 /run/buildkit/ssh_agent.0
+#18 1.295 [fetch-a] ssh-add: key 256 (ED25519)
+#18 1.295 [fetch-a] ssh-add: key 3072 (RSA)
+#18 2.710     Updating git repository `ssh://git@github.com/rust-lang/cfg-if`
+#18 2.783      Running `git fetch --no-tags --verbose --force --update-head-ok 'ssh://git@github.com/rust-lang/cfg-if' '+HEAD:refs/remotes/origin/HEAD'`
+#18 4.392 From ssh://github.com/rust-lang/cfg-if
+#18 4.392  * [new ref]                    -> origin/HEAD
+#18 4.449      Locking 1 package to latest compatible version
+#18 4.515 [fetch-a] OK source = "git+ssh://git@github.com/rust-lang/cfg-if#14432a28e180ec717933714aed7828fc7ed2fd29"
+#18 DONE 4.6s
+
+#19 [final final 2/4] COPY --from=fetch-a /ws/result.txt /results/a.txt
+#19 DONE 0.1s
+
+#20 [final fetch 4/5] RUN --mount=type=ssh     echo "[${STEP_NAME}] SSH_AUTH_SOCK=${SSH_AUTH_SOCK:-<unset>} CARGO_NET_GIT_FETCH_WITH_CLI=${CARGO_NET_GIT_FETCH_WITH_CLI}"     && (ls -l "${SSH_AUTH_SOCK:-/nonexistent}" || true)     && (keys="$(ssh-add -l)"         && echo "$keys" | awk -v s="[${STEP_NAME}]" '{print s, "ssh-add: key", $1, $NF}'         || echo "[${STEP_NAME}] ssh-add -l exit=$?")     && install -m 0700 -d ~/.ssh     && ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null     && cargo fetch     && echo "[${STEP_NAME}] OK $(grep -m1 'source = "git+' Cargo.lock)" | tee /ws/result.txt
+#20 0.646 [fetch-b] SSH_AUTH_SOCK=/run/buildkit/ssh_agent.0 CARGO_NET_GIT_FETCH_WITH_CLI=true
+#20 0.649 ls: cannot access '/run/buildkit/ssh_agent.0': No such file or directory
+#20 0.655 Error connecting to agent: No such file or directory
+#20 0.656 [fetch-b] ssh-add -l exit=2
+#20 2.099     Updating git repository `ssh://git@github.com/rust-lang/cfg-if`
+#20 2.178      Running `git fetch --no-tags --verbose --force --update-head-ok 'ssh://git@github.com/rust-lang/cfg-if' '+HEAD:refs/remotes/origin/HEAD'`
+#20 2.811 git@github.com: Permission denied (publickey).
+#20 2.812 fatal: Could not read from remote repository.
+#20 2.812 
+#20 2.812 Please make sure you have the correct access rights
+#20 2.812 and the repository exists.
+#20 2.813 warning: spurious network error (3 tries remaining): process didn't exit successfully: `git fetch --no-tags --verbose --force --update-head-ok 'ssh://git@github.com/rust-lang/cfg-if' '+HEAD:refs/remotes/origin/HEAD'` (exit status: 128)
+#20 4.159 git@github.com: Permission denied (publickey).
+#20 4.160 fatal: Could not read from remote repository.
+#20 4.160 
+#20 4.160 Please make sure you have the correct access rights
+#20 4.160 and the repository exists.
+#20 4.161 warning: spurious network error (2 tries remaining): process didn't exit successfully: `git fetch --no-tags --verbose --force --update-head-ok 'ssh://git@github.com/rust-lang/cfg-if' '+HEAD:refs/remotes/origin/HEAD'` (exit status: 128)
+#20 8.303 git@github.com: Permission denied (publickey).
+#20 8.305 fatal: Could not read from remote repository.
+#20 8.305 
+#20 8.305 Please make sure you have the correct access rights
+#20 8.305 and the repository exists.
+#20 8.305 warning: spurious network error (1 try remaining): process didn't exit successfully: `git fetch --no-tags --verbose --force --update-head-ok 'ssh://git@github.com/rust-lang/cfg-if' '+HEAD:refs/remotes/origin/HEAD'` (exit status: 128)
+#20 15.47 git@github.com: Permission denied (publickey).
+#20 15.47 fatal: Could not read from remote repository.
+#20 15.47 
+#20 15.47 Please make sure you have the correct access rights
+#20 15.47 and the repository exists.
+#20 15.47 error: failed to get `cfg-if` as a dependency of package `consumer v0.1.0 (/ws/consumer)`
+#20 15.47 
+#20 15.47 Caused by:
+#20 15.47   failed to load source for dependency `cfg-if`
+#20 15.47 
+#20 15.47 Caused by:
+#20 15.47   unable to update ssh://git@github.com/rust-lang/cfg-if
+#20 15.47 
+#20 15.47 Caused by:
+#20 15.47   failed to clone into: /usr/local/cargo/git/db/cfg-if-bc1ec334539c6027
+#20 15.47 
+#20 15.47 Caused by:
+#20 15.47   process didn't exit successfully: `git fetch --no-tags --verbose --force --update-head-ok 'ssh://git@github.com/rust-lang/cfg-if' '+HEAD:refs/remotes/origin/HEAD'` (exit status: 128)
+#20 ERROR: process "/bin/sh -c echo \"[${STEP_NAME}] SSH_AUTH_SOCK=${SSH_AUTH_SOCK:-<unset>} CARGO_NET_GIT_FETCH_WITH_CLI=${CARGO_NET_GIT_FETCH_WITH_CLI}\"     && (ls -l \"${SSH_AUTH_SOCK:-/nonexistent}\" || true)     && (keys=\"$(ssh-add -l)\"         && echo \"$keys\" | awk -v s=\"[${STEP_NAME}]\" '{print s, \"ssh-add: key\", $1, $NF}'         || echo \"[${STEP_NAME}] ssh-add -l exit=$?\")     && install -m 0700 -d ~/.ssh     && ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null     && cargo fetch     && echo \"[${STEP_NAME}] OK $(grep -m1 'source = \"git+' Cargo.lock)\" | tee /ws/result.txt" did not complete successfully: exit code: 101
+------
+ > [final fetch 4/5] RUN --mount=type=ssh     echo "[${STEP_NAME}] SSH_AUTH_SOCK=${SSH_AUTH_SOCK:-<unset>} CARGO_NET_GIT_FETCH_WITH_CLI=${CARGO_NET_GIT_FETCH_WITH_CLI}"     && (ls -l "${SSH_AUTH_SOCK:-/nonexistent}" || true)     && (keys="$(ssh-add -l)"         && echo "$keys" | awk -v s="[${STEP_NAME}]" '{print s, "ssh-add: key", $1, $NF}'         || echo "[${STEP_NAME}] ssh-add -l exit=$?")     && install -m 0700 -d ~/.ssh     && ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null     && cargo fetch     && echo "[${STEP_NAME}] OK $(grep -m1 'source = "git+' Cargo.lock)" | tee /ws/result.txt:
+15.47   failed to load source for dependency `cfg-if`
+15.47 
+15.47 Caused by:
+15.47   unable to update ssh://git@github.com/rust-lang/cfg-if
+15.47 
+15.47 Caused by:
+15.47   failed to clone into: /usr/local/cargo/git/db/cfg-if-bc1ec334539c6027
+15.47 
+15.47 Caused by:
+15.47   process didn't exit successfully: `git fetch --no-tags --verbose --force --update-head-ok 'ssh://git@github.com/rust-lang/cfg-if' '+HEAD:refs/remotes/origin/HEAD'` (exit status: 128)
+------
+ERROR: target final: failed to solve: process "/bin/sh -c echo \"[${STEP_NAME}] SSH_AUTH_SOCK=${SSH_AUTH_SOCK:-<unset>} CARGO_NET_GIT_FETCH_WITH_CLI=${CARGO_NET_GIT_FETCH_WITH_CLI}\"     && (ls -l \"${SSH_AUTH_SOCK:-/nonexistent}\" || true)     && (keys=\"$(ssh-add -l)\"         && echo \"$keys\" | awk -v s=\"[${STEP_NAME}]\" '{print s, \"ssh-add: key\", $1, $NF}'         || echo \"[${STEP_NAME}] ssh-add -l exit=$?\")     && install -m 0700 -d ~/.ssh     && ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null     && cargo fetch     && echo \"[${STEP_NAME}] OK $(grep -m1 'source = \"git+' Cargo.lock)\" | tee /ws/result.txt" did not complete successfully: exit code: 101
+### exit=1

@@ -1,0 +1,161 @@
+### context=remote-arm64 mode=flag
+### DOCKER_CONTEXT=remote-arm64 docker buildx bake --progress=plain --allow=ssh final
+#0 building with "remote-arm64" instance using docker driver
+
+#1 [internal] load local bake definitions
+#1 reading docker-bake.hcl 2.63kB / 2.63kB done
+#1 DONE 0.0s
+
+#2 [build-base internal] load build definition from base.Dockerfile
+#2 transferring dockerfile: 361B done
+#2 DONE 0.0s
+
+#3 [build-base] resolve image config for docker-image://docker.io/docker/dockerfile:1.10
+#3 DONE 0.5s
+
+#4 [build-base] docker-image://docker.io/docker/dockerfile:1.10@sha256:865e5dd094beca432e8c0a1d5e1c465db5f998dca4e439981029b3b81fb39ed5
+#4 resolve docker.io/docker/dockerfile:1.10@sha256:865e5dd094beca432e8c0a1d5e1c465db5f998dca4e439981029b3b81fb39ed5 0.0s done
+#4 CACHED
+
+#5 [build-base internal] load metadata for docker.io/library/rust:1.95-slim-bookworm
+#5 DONE 0.2s
+
+#6 [fetch-a internal] load build definition from fetch.Dockerfile
+#6 transferring dockerfile: 2.82kB done
+#6 DONE 0.0s
+
+#7 [build-base internal] load .dockerignore
+#7 transferring context: 42B done
+#7 DONE 0.0s
+
+#3 [fetch-b] resolve image config for docker-image://docker.io/docker/dockerfile:1.10
+#3 DONE 0.5s
+
+#4 [fetch-b] docker-image://docker.io/docker/dockerfile:1.10@sha256:865e5dd094beca432e8c0a1d5e1c465db5f998dca4e439981029b3b81fb39ed5
+#4 resolve docker.io/docker/dockerfile:1.10@sha256:865e5dd094beca432e8c0a1d5e1c465db5f998dca4e439981029b3b81fb39ed5 0.0s done
+#4 CACHED
+
+#7 [fetch-b internal] load .dockerignore
+#7 transferring context: 42B done
+#7 DONE 0.0s
+
+#8 [final internal] load build definition from final.Dockerfile
+#8 transferring dockerfile: 297B done
+#8 DONE 0.0s
+
+#7 [fetch-a internal] load .dockerignore
+#7 transferring context: 42B done
+#7 DONE 0.0s
+
+#9 [build-base 1/2] FROM docker.io/library/rust:1.95-slim-bookworm@sha256:d7482085ff5b415f84dba5647ae71606650bdef00db7aeb69f4b3d170c3e4082
+#9 resolve docker.io/library/rust:1.95-slim-bookworm@sha256:d7482085ff5b415f84dba5647ae71606650bdef00db7aeb69f4b3d170c3e4082 0.1s done
+#9 DONE 0.1s
+
+#10 [build-base 2/2] RUN apt-get update &&     apt-get install -y --no-install-recommends openssh-client git ca-certificates &&     rm -rf /var/lib/apt/lists/*
+#10 CACHED
+
+#3 [final] resolve image config for docker-image://docker.io/docker/dockerfile:1.10
+#3 DONE 0.5s
+
+#4 [final] docker-image://docker.io/docker/dockerfile:1.10@sha256:865e5dd094beca432e8c0a1d5e1c465db5f998dca4e439981029b3b81fb39ed5
+#4 resolve docker.io/docker/dockerfile:1.10@sha256:865e5dd094beca432e8c0a1d5e1c465db5f998dca4e439981029b3b81fb39ed5 0.0s done
+#4 CACHED
+
+#11 [final internal] load metadata for docker.io/library/ubuntu:jammy
+#11 DONE 0.2s
+
+#7 [final internal] load .dockerignore
+#7 transferring context: 42B done
+#7 DONE 0.0s
+
+#12 [final final 1/4] FROM docker.io/library/ubuntu:jammy@sha256:f64b2ffc2f10ab8f8505aa56b2664bd846cbb9df87c7e2532e30f7667021c0e6
+#12 resolve docker.io/library/ubuntu:jammy@sha256:f64b2ffc2f10ab8f8505aa56b2664bd846cbb9df87c7e2532e30f7667021c0e6 0.0s done
+#12 CACHED
+
+#9 [fetch-a 1/2] FROM docker.io/library/rust:1.95-slim-bookworm@sha256:d7482085ff5b415f84dba5647ae71606650bdef00db7aeb69f4b3d170c3e4082
+#9 resolve docker.io/library/rust:1.95-slim-bookworm@sha256:d7482085ff5b415f84dba5647ae71606650bdef00db7aeb69f4b3d170c3e4082 0.0s done
+#9 DONE 0.1s
+
+#10 [fetch-b 2/2] RUN apt-get update &&     apt-get install -y --no-install-recommends openssh-client git ca-certificates &&     rm -rf /var/lib/apt/lists/*
+#10 CACHED
+
+#13 [fetch-a fetch 1/5] RUN --mount=type=secret,id=GITHUB_AUTH_TOKEN,env=GITHUB_AUTH_TOKEN,required=false     if [ "${GITHUB_AUTH_TOKEN}" != "" ]; then       git config --global url."https://x-access-token:${GITHUB_AUTH_TOKEN}@github.com/".insteadOf "ssh://git@github.com/";       git config --global --add url."https://x-access-token:${GITHUB_AUTH_TOKEN}@github.com/".insteadOf "git@github.com:";     else echo "Using SSH agent for repository access"; fi
+#13 1.048 Using SSH agent for repository access
+#13 DONE 0.8s
+
+#14 [final fetch 1/5] RUN --mount=type=secret,id=GITHUB_AUTH_TOKEN,env=GITHUB_AUTH_TOKEN,required=false     if [ "${GITHUB_AUTH_TOKEN}" != "" ]; then       git config --global url."https://x-access-token:${GITHUB_AUTH_TOKEN}@github.com/".insteadOf "ssh://git@github.com/";       git config --global --add url."https://x-access-token:${GITHUB_AUTH_TOKEN}@github.com/".insteadOf "git@github.com:";     else echo "Using SSH agent for repository access"; fi
+#14 0.433 Using SSH agent for repository access
+#14 DONE 0.9s
+
+#15 [fetch-a fetch 2/5] WORKDIR /ws/consumer
+#15 DONE 0.2s
+
+#16 [fetch-a fetch 3/5] RUN mkdir -p src && : > src/lib.rs &&     printf '[package]\nname = "consumer"\nversion = "0.1.0"\nedition = "2021"\n\n[dependencies]\ndep = { package = "%s", git = "%s" }\n'       "cfg-if" "ssh://git@github.com/rust-lang/cfg-if" > Cargo.toml &&     cat Cargo.toml
+#16 ...
+
+#17 [final fetch 2/5] WORKDIR /ws/consumer
+#17 DONE 0.2s
+
+#18 [final fetch 3/5] RUN mkdir -p src && : > src/lib.rs &&     printf '[package]\nname = "consumer"\nversion = "0.1.0"\nedition = "2021"\n\n[dependencies]\ndep = { package = "%s", git = "%s" }\n'       "cfg-if" "ssh://git@github.com/rust-lang/cfg-if" > Cargo.toml &&     cat Cargo.toml
+#18 ...
+
+#16 [final fetch 3/5] RUN mkdir -p src && : > src/lib.rs &&     printf '[package]\nname = "consumer"\nversion = "0.1.0"\nedition = "2021"\n\n[dependencies]\ndep = { package = "%s", git = "%s" }\n'       "cfg-if" "ssh://git@github.com/rust-lang/cfg-if" > Cargo.toml &&     cat Cargo.toml
+#16 1.090 [package]
+#16 1.090 name = "consumer"
+#16 1.090 version = "0.1.0"
+#16 1.090 edition = "2021"
+#16 1.090 
+#16 1.090 [dependencies]
+#16 1.090 dep = { package = "cfg-if", git = "ssh://git@github.com/rust-lang/cfg-if" }
+#16 DONE 0.9s
+
+#19 [fetch-a fetch 4/5] RUN --mount=type=ssh     echo "[${STEP_NAME}] SSH_AUTH_SOCK=${SSH_AUTH_SOCK:-<unset>} CARGO_NET_GIT_FETCH_WITH_CLI=${CARGO_NET_GIT_FETCH_WITH_CLI}"     && (ls -l "${SSH_AUTH_SOCK:-/nonexistent}" || true)     && (keys="$(ssh-add -l)"         && echo "$keys" | awk -v s="[${STEP_NAME}]" '{print s, "ssh-add: key", $1, $NF}'         || echo "[${STEP_NAME}] ssh-add -l exit=$?")     && install -m 0700 -d ~/.ssh     && ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null     && cargo fetch     && echo "[${STEP_NAME}] OK $(grep -m1 'source = "git+' Cargo.lock)" | tee /ws/result.txt
+#19 ...
+
+#18 [fetch-b fetch 3/5] RUN mkdir -p src && : > src/lib.rs &&     printf '[package]\nname = "consumer"\nversion = "0.1.0"\nedition = "2021"\n\n[dependencies]\ndep = { package = "%s", git = "%s" }\n'       "cfg-if" "ssh://git@github.com/rust-lang/cfg-if" > Cargo.toml &&     cat Cargo.toml
+#18 1.386 [package]
+#18 1.386 name = "consumer"
+#18 1.386 version = "0.1.0"
+#18 1.386 edition = "2021"
+#18 1.386 
+#18 1.386 [dependencies]
+#18 1.386 dep = { package = "cfg-if", git = "ssh://git@github.com/rust-lang/cfg-if" }
+#18 DONE 1.4s
+
+#19 [fetch-a fetch 4/5] RUN --mount=type=ssh     echo "[${STEP_NAME}] SSH_AUTH_SOCK=${SSH_AUTH_SOCK:-<unset>} CARGO_NET_GIT_FETCH_WITH_CLI=${CARGO_NET_GIT_FETCH_WITH_CLI}"     && (ls -l "${SSH_AUTH_SOCK:-/nonexistent}" || true)     && (keys="$(ssh-add -l)"         && echo "$keys" | awk -v s="[${STEP_NAME}]" '{print s, "ssh-add: key", $1, $NF}'         || echo "[${STEP_NAME}] ssh-add -l exit=$?")     && install -m 0700 -d ~/.ssh     && ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null     && cargo fetch     && echo "[${STEP_NAME}] OK $(grep -m1 'source = "git+' Cargo.lock)" | tee /ws/result.txt
+#19 0.508 [fetch-a] SSH_AUTH_SOCK=/run/buildkit/ssh_agent.0 CARGO_NET_GIT_FETCH_WITH_CLI=true
+#19 0.511 srw------- 1 root root 0 Nov 20 08:46 /run/buildkit/ssh_agent.0
+#19 0.530 [fetch-a] ssh-add: key 256 (ED25519)
+#19 0.530 [fetch-a] ssh-add: key 3072 (RSA)
+#19 2.071     Updating git repository `ssh://git@github.com/rust-lang/cfg-if`
+#19 2.120      Running `git fetch --no-tags --verbose --force --update-head-ok 'ssh://git@github.com/rust-lang/cfg-if' '+HEAD:refs/remotes/origin/HEAD'`
+#19 3.644 From ssh://github.com/rust-lang/cfg-if
+#19 3.644  * [new ref]                    -> origin/HEAD
+#19 3.695      Locking 1 package to latest compatible version
+#19 3.754 [fetch-a] OK source = "git+ssh://git@github.com/rust-lang/cfg-if#14432a28e180ec717933714aed7828fc7ed2fd29"
+#19 DONE 4.4s
+
+#20 [final final 2/4] COPY --from=fetch-a /ws/result.txt /results/a.txt
+#20 DONE 0.1s
+
+#21 [final fetch 4/5] RUN --mount=type=ssh     echo "[${STEP_NAME}] SSH_AUTH_SOCK=${SSH_AUTH_SOCK:-<unset>} CARGO_NET_GIT_FETCH_WITH_CLI=${CARGO_NET_GIT_FETCH_WITH_CLI}"     && (ls -l "${SSH_AUTH_SOCK:-/nonexistent}" || true)     && (keys="$(ssh-add -l)"         && echo "$keys" | awk -v s="[${STEP_NAME}]" '{print s, "ssh-add: key", $1, $NF}'         || echo "[${STEP_NAME}] ssh-add -l exit=$?")     && install -m 0700 -d ~/.ssh     && ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null     && cargo fetch     && echo "[${STEP_NAME}] OK $(grep -m1 'source = "git+' Cargo.lock)" | tee /ws/result.txt
+#21 0.974 [fetch-b] SSH_AUTH_SOCK=/run/buildkit/ssh_agent.0 CARGO_NET_GIT_FETCH_WITH_CLI=true
+#21 0.978 srw------- 1 root root 0 Nov 20 08:46 /run/buildkit/ssh_agent.0
+#21 0.993 [fetch-b] ssh-add: key 256 (ED25519)
+#21 0.993 [fetch-b] ssh-add: key 3072 (RSA)
+#21 2.373     Updating git repository `ssh://git@github.com/rust-lang/cfg-if`
+#21 2.429      Running `git fetch --no-tags --verbose --force --update-head-ok 'ssh://git@github.com/rust-lang/cfg-if' '+HEAD:refs/remotes/origin/HEAD'`
+#21 3.952 From ssh://github.com/rust-lang/cfg-if
+#21 3.952  * [new ref]                    -> origin/HEAD
+#21 4.002      Locking 1 package to latest compatible version
+#21 4.061 [fetch-b] OK source = "git+ssh://git@github.com/rust-lang/cfg-if#14432a28e180ec717933714aed7828fc7ed2fd29"
+#21 DONE 4.1s
+
+#22 [final final 3/4] COPY --from=fetch-b /ws/result.txt /results/b.txt
+#22 DONE 0.1s
+
+#23 [final final 4/4] RUN cat /results/*.txt
+#23 0.398 [fetch-a] OK source = "git+ssh://git@github.com/rust-lang/cfg-if#14432a28e180ec717933714aed7828fc7ed2fd29"
+#23 0.398 [fetch-b] OK source = "git+ssh://git@github.com/rust-lang/cfg-if#14432a28e180ec717933714aed7828fc7ed2fd29"
+#23 DONE 0.4s
+### exit=0

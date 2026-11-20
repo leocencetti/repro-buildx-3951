@@ -1,4 +1,4 @@
-# buildx-3951-repro
+# repro-buildx-3951
 
 Reproducer for [docker/buildx#3951](https://github.com/docker/buildx/issues/3951):
 SSH agent forwarding (`--mount=type=ssh`) intermittently breaks in Bake builds.
